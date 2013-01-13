@@ -1,6 +1,6 @@
 <?php
 /*
- * jQuery File Upload Plugin PHP Class 6.1.1
+ * jQuery File Upload Plugin PHP Class 6.1.2
  * https://github.com/blueimp/jQuery-File-Upload
  *
  * Copyright 2010, Sebastian Tschan
@@ -356,7 +356,8 @@ class UploadHandler
             return false;
         }
         $content_length = $this->fix_integer_overflow(intval($_SERVER['CONTENT_LENGTH']));
-        if ($content_length > $this->get_config_bytes(ini_get('post_max_size'))) {
+        $post_max_size = $this->get_config_bytes(ini_get('post_max_size'));
+        if ($post_max_size && ($content_length > $post_max_size)) {
             $file->error = $this->get_error_message('post_max_size');
             return false;
         }
