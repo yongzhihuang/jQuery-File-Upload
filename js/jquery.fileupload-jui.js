@@ -1,5 +1,5 @@
 /*
- * jQuery File Upload jQuery UI Plugin 1.4
+ * jQuery File Upload jQuery UI Plugin 7.4
  * https://github.com/blueimp/jQuery-File-Upload
  *
  * Copyright 2012, Sebastian Tschan
@@ -69,11 +69,11 @@
             var node = this._super(func, files),
                 showIconText = $(window).width() > 480;
             node.find('.progress').empty().progressbar();
-            node.find('.start button').button({
+            node.find('.start').button({
                 icons: {primary: 'ui-icon-circle-arrow-e'},
                 text: showIconText
             });
-            node.find('.cancel button').button({
+            node.find('.cancel').button({
                 icons: {primary: 'ui-icon-cancel'},
                 text: showIconText
             });
@@ -82,7 +82,7 @@
         _renderDownload: function (func, files) {
             var node = this._super(func, files),
                 showIconText = $(window).width() > 480;
-            node.find('.delete button').button({
+            node.find('.delete').button({
                 icons: {primary: 'ui-icon-trash'},
                 text: showIconText
             });
